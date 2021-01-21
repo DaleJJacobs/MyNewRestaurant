@@ -16,18 +16,18 @@ module.exports = function (app) {
   // ---------------------------------------------------------------------------
 
   app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
     // res.send("Welcome to Chic Restaurant!");
   });
 
   app.get("/reserve", function (req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    res.sendFile(path.join(__dirname, "../public/reserve.html"));
     // res.send("Welcome to Chic Restaurant Reservations!");
 
   });
 
   app.get("/tables", function (req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
+    res.sendFile(path.join(__dirname, "../public/tables.html"));
     // res.send("Welcome to Chic Restaurant's Tables!");
   });
 };

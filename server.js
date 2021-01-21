@@ -17,35 +17,8 @@ app.use(express.static(__dirname + '/rest_images'));
 // app.use(express.static(path.join(__dirname, '/public')))
 
 
-// Data
-// ===========================================================
-
-
-
-
-
-
-
-// Routes
-// ===========================================================
-
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
-    // res.send("Welcome to Chic Restaurant!");
-});
-
-app.get("/reserve", function (req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
-    // res.send("Welcome to Chic Restaurant Reservations!");
-
-});
-
-app.get("/tables", function (req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
-    // res.send("Welcome to Chic Restaurant's Tables!");
-});
-
-
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 // Listener
 // ===========================================================

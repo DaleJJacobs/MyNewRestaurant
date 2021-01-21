@@ -20,11 +20,11 @@ module.exports = function (app) {
   // ---------------------------------------------------------------------------
 
   app.get("/api/tables", function (req, res) {
-    return res.json(reservationArray);
+    return res.json(reserveData);
   });
 
   app.get("/api/waitlist", function (req, res) {
-    return res.json(waitlistArray);
+    return res.json(waitListData);
   });
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
@@ -38,19 +38,19 @@ module.exports = function (app) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-    if (reservationArray.length < 5) {
-      reservationArray.push(req.body);
+    if (reserveData.length < 5) {
+      reserveData.push(req.body);
       res.json(true);
     }
     else {
-      waitlistArray.push(req.body);
+      waitListData.push(req.body);
       res.json(false);
     }
   });
   app.post("/api/clear", function (req, res) {
     // Empty out the arrays of data
-    reservationArray.length = 0;
-    waitlistArray.length = 0;
+    reserveData.length = 0;
+    waitListData.length = 0;
 
     res.json({ ok: true });
   });
